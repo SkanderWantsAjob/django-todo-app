@@ -100,14 +100,23 @@ a{
 }
 
 .todo-green {
-  background-color: green;
-  /* Add other styles as needed */
+  background-color: #89f4a2;
+  border-left: 10px solid #28a745;
+  color: #155724;
+}
+
+.todo-yellow {
+  background-color: #f9e6a1;
+  border-left: 10px solid #ffc107;
+  color: #856404;
 }
 
 .todo-red {
-  background-color: red;
-  /* Add other styles as needed */
+  background-color: #f97e88;
+  border-left: 10px solid #dc3545;
+  color: #721c24;
 }
+
 
 .anca{
   font-size: 25px;
@@ -118,4 +127,13 @@ a{
 .heads{
   display: flex;
     justify-content: space-evenly;
+}
+.status-button {
+  background-color: transparent;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-top: 5px;
 }

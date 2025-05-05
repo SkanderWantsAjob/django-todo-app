@@ -41,14 +41,27 @@
                 </form>
 
                 {% for todo in res %}
-                <div class="Todo clickable-div {% if todo.status %}todo-green{% else %}todo-red{% endif %}">
-                    <form method="post" action="">
-                        {% csrf_token %}
+                <div class="Todo clickable-div 
+                    {% if todo.status == 'DONE' %}todo-green
+                    {% elif todo.status == 'PENDING' %}todo-yellow
+                    {% elif todo.status == 'NOT_DONE' %}todo-red
+                    {% endif %}">
 
-                        <!-- <h5><input name="status"required type="submit" {% if todo.status %} checked {% endif %}></h5> -->
+                    <form method="post" action="{% url 'change_status' todo.srno %}">
+                        {% csrf_token %}
+                        <button type="submit" class="status-button">
+                            {% if todo.status == 'NOT_DONE' %}
+                                Mark as Pending
+                            {% elif todo.status == 'PENDING' %}
+                                Mark as Done
+                            {% else %}
+                                Reset to Not Done
+                            {% endif %}
+                        </button>
                     </form>
 
-                    <p class="{% if todo.status %} completed {% endif %} ">{{todo.title}}</p>
+
+                    <p class="{% if todo.status == 'DONE' %} completed  {% endif %} ">{{todo.title}}</p>
 
 
 
