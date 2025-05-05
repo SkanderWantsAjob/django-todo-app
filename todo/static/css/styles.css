@@ -132,8 +132,38 @@ a{
   background-color: transparent;
   border: none;
   color: #007bff;
-  text-decoration: underline;
   cursor: pointer;
   font-size: 0.9em;
   margin-top: 5px;
+}
+
+.status-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  margin-right: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.status-not {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.status-pen {
+  background-color: #ffc107;
+  color: black;
+}
+
+.status-done {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-button:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }

@@ -49,23 +49,27 @@
 
                     <form method="post" action="{% url 'change_status' todo.srno %}">
                         {% csrf_token %}
-                        <button type="submit" class="status-button">
-                            {% if todo.status == 'NOT_DONE' %}
-                                Mark as Pending
+                        <button type="submit"
+                            class="status-button 
+                                {% if todo.status == 'NOT_DONE' %}status-not
+                                {% elif todo.status == 'PENDING' %}status-pen
+                                {% elif todo.status == 'DONE' %}status-done{% endif %}">
+                            
+                                {% if todo.status == 'NOT_DONE' %}
+                                🔴 Not Done
                             {% elif todo.status == 'PENDING' %}
-                                Mark as Done
-                            {% else %}
-                                Reset to Not Done
+                                🟡 Pending
+                            {% elif todo.status == 'DONE' %}
+                                ✅ Done
                             {% endif %}
+                            
+
                         </button>
                     </form>
+                    
 
 
                     <p class="{% if todo.status == 'DONE' %} completed  {% endif %} ">{{todo.title}}</p>
-
-
-
-
                     <div>
                         <a href=" /edit_todo/{{todo.srno}} "><i class="fa-solid fa-pen-to-square"></i></a>
                         <a href=" /delete_todo/{{todo.srno}} "><i class="fa-solid fa-trash"></i></a>
