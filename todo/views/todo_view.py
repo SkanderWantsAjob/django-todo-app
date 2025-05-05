@@ -9,6 +9,7 @@ def todo_view_render(request):
         title = request.POST.get('title')
         print(title)
         TODOO.objects.create(title=title, user=user)
+        return redirect('/todopage')
 
     res = TODOO.objects.filter(user=user).order_by('-date')
     return render(request, 'todo.html', {'res': res})
